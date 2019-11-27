@@ -8,7 +8,6 @@ import User from './User';
 const resolvers = {
   Query,
   Mutation,
-  Subscription,
   User
 };
 

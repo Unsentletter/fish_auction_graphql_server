@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "node dist/index.js",
+    "heroku-postbuild": "babel src --out-dir dist --copy-files",
+    "dev": "env-cmd ./config/dev.env nodemon src/index.js --ext js,graphql  --exec babel-node",
+    "get-schema": "graphql get-schema -p prisma --dotenv config/dev.env"
+  },
   "dependencies": {
     "@babel/polyfill": "7.0.0",
     "babel-cli": "6.26.0",
@@ -16,5 +22,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.0"
+  },
+  "resolutions": {
+    "graphql": "0.13.1"
   }
 }
